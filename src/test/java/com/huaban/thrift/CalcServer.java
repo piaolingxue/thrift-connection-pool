@@ -36,7 +36,7 @@ public class CalcServer {
       processor = new CalcService.Processor<Iface>(handler);
 
       Runnable simple = new Runnable() {
-        public void run() {
+        public void run() { 
           simple(processor);
         }
       };      

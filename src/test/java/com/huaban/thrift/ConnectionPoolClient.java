@@ -14,10 +14,6 @@ public class ConnectionPoolClient implements Iface {
     ConnectionManager connManager;
     
     class CalcServiceClient implements Iface {
-        
-        public CalcServiceClient(ConnectionManager manager) {
-            
-        }
 
         @Override
         public void ping() throws TException {
@@ -37,7 +33,7 @@ public class ConnectionPoolClient implements Iface {
 
     public ConnectionPoolClient(ConnectionManager connManager) {
         this.connManager = connManager;
-        CalcServiceClient client = new ConnectionPoolClient.CalcServiceClient(connManager);
+        CalcServiceClient client = new ConnectionPoolClient.CalcServiceClient();
         try {
             ping = new GenericMethodInvocation(client, client.getClass().getMethod("ping"), null);
             add = new GenericMethodInvocation(client, client.getClass().getMethod("add", int.class, int.class), null);
