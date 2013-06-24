@@ -39,6 +39,9 @@ public class ConnectionPoolClientTest extends TestCase {
     @Test
     public void test_segment() throws Throwable {
         System.out.println(String.format("%d+%d=%d", 3, 2, client.add(3, 2)));
+        for (int i = 0; i < 100000; ++i) {
+            client.add(3, 2);
+        }
     }
 
 }
